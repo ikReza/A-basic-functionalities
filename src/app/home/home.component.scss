@@ -1,0 +1,27 @@
+$testBorder: 1px solid black;
+
+button {
+  background-color: rgb(25, 110, 110);
+  color: white;
+  padding: 5px 10px;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: darken($color: rgb(25, 110, 110), $amount: 10%);
+  }
+}
+
+.play-container {
+  border: $testBorder;
+  padding: 10px;
+  margin-bottom: 1vh;
+}
+
+.active {
+  background-color: darkkhaki;
+}
+
+.superActive {
+  background-color: #233;
+  color: tomato;
+}

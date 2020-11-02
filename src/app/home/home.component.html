@@ -1,0 +1,57 @@
+<h1>Welcome Home!</h1>
+
+<div class="play-container">
+  <p>
+    You've clicked this <button (click)="onClick()">button</button>
+    {{ count }} times
+  </p>
+</div>
+
+<div class="play-container">
+  <p>
+    <input type="text" [(ngModel)]="name" />
+    <br />
+    <strong>You said: {{ name }}</strong>
+  </p>
+</div>
+
+<div
+  class="play-container"
+  [style.background-color]="
+    count > 4 ? 'yellow' : count < 4 ? 'lightgrey' : 'tan'
+  "
+>
+  <ng-template [ngIf]="count > 4">
+    You clicked the button <strong>more than 4</strong> times.
+  </ng-template>
+  <ng-template [ngIf]="count === 4">
+    You clicked the button <strong>exactly 4</strong> times.
+  </ng-template>
+  <ng-template [ngIf]="count < 4">
+    You clicked the button <strong>less than 4</strong> times.
+  </ng-template>
+</div>
+
+<!-- Change multiple css style -->
+<div
+  class="play-container"
+  [ngStyle]="{
+    backgroundColor: count > 2 ? 'cyan' : 'lightgrey',
+    border: count > 2 ? '4px solid black' : 'none'
+  }"
+>
+  <p>Multiple css style</p>
+  <ng-template [ngIf]="name !== ''">
+    Woo hoo!! You wrote something. 😃
+  </ng-template>
+</div>
+
+<!-- using css style without inline -->
+<div class="play-container" [class.active]="count > 1">
+  <p>Not using inline style</p>
+</div>
+
+<!-- using css style without inline for multiple classes -->
+<div class="play-container" [ngClass]="setClasses()">
+  <p>Multiple classes</p>
+</div>
